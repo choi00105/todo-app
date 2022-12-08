@@ -1,4 +1,7 @@
 // Todo 모델
+const { sequelize, Sequelize } = require(".");
+const db = require(".");
+
 // 시퀄라이즈 모델과 mysql todo table 연결
 const Todo = function (Sequelize, DataTypes) {
   // Sequelize.define()
@@ -33,5 +36,6 @@ const Todo = function (Sequelize, DataTypes) {
 
   return model;
 };
-
+db.Todo = require('./Todo')(sequelize, Sequelize);
+// db = { "": , "":, "": }
 module.exports = Todo;
