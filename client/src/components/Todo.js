@@ -1,10 +1,14 @@
+import { useState } from "react";
 
-// 1. 함수형 컴포넌트
-// 2. input(checkbox)와 label을 랜더링하는 컴포넌트
-// 3. App (부모 컴포넌트)에서 Todo(자식 컴포넌트) 1개 랜더링
-const Todo = ({ item }) => {
+const Todo = ({ item , delItem }) => {
   const { id, title, done } = item;
+  // console.log(item.id);
+  const [todoItem, setTodoItem]= useState(item);
 
+  const onDeleteBtnClick = () => {
+    delItem(todoItem);
+  }
+  // console.log(delItem(item));
   return (
     <div className="Todo">
       <input
@@ -15,6 +19,7 @@ const Todo = ({ item }) => {
         defaultChecked={done}
       />
       <label htmlFor={`todo${id}`}>{title}</label>
+      <button onClick={onDeleteBtnClick}>DELETE</button>
     </div>
   );
 };

@@ -19,7 +19,7 @@ const AddTodo = ({ addItem }) => {
   };
 
   const onEnterKeyPress = (e) =>{
-    if (e.key === 'Enter') {
+    if (e.key == 'Enter') {
       onButtonClick();
     }
   };

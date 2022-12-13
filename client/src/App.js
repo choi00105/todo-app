@@ -28,28 +28,28 @@ const App = () => {
 
   // const addItem = (newItem) => {
   const addItem = (newItem) => {
-    //...
-    // newItem - {id:todoItems.length + 1 title: 받아오기 done:false} 객체형식 
-    // setTodoItems()
 
     newItem.id = todoId.current++; // 키를 위한 id 설정
     newItem.done = false; // done 초기화
     // 기존 todoItems를 유지하고, 새로운 newItem을 추가
     setTodoItems([...todoItems, newItem]); // setTodoItems(todoItems.concat(newItem))
+  };
 
-    // const newItem = todoItems.concat({
-    //   id: todoItems.length + 1,
-    //   title: newTitle,
-    //   done: false,
-    // });
-    // setTodoItems(newItem)
-
+  // 전체 Todo 리스트(todoItems)는 App 컴포넌트에서 관리하고 있으므로
+  // delItem() 함수는 App 컴포넌트에 작성해야함
+  const delItem = (targetItem) => {
+    console.log(targetItem);
+    // filter method 이용
+    let newtodoItems = todoItems.filter((item) => targetItem.id !== item.id )
+    console.log('newtodo', newtodoItems);
+    setTodoItems(newtodoItems);
   };
 
   return (
     <div className="App">
       {console.log('todoItems', todoItems)}
       {console.log(todoItems[0])}
+      {/* {console.log(delItem(todoItems))} */}
       
       <AddTodo
         addItem={addItem}
@@ -57,7 +57,7 @@ const App = () => {
 
       {todoItems.map((item) => {
         // console.log(item); // {id: 1, title: 'My Todo1', done: false}
-        return <Todo key={item.id} item={item}></Todo>;
+        return <Todo key={item.id} item={item} delItem={delItem}></Todo>;
       })}
       
     </div>
