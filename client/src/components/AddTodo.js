@@ -16,6 +16,9 @@ const AddTodo = ({ addItem }) => {
 
   const onButtonClick = () => {
     //props로 받아온 addItem 함수 실행
+    if(todoItem.title.trim().length===0){
+      return;
+    }
     addItem(todoItem); // {title: 'input 입력값'}
     setTodoItem({ title: ''});
     // setTodoItem(this.value)
@@ -40,9 +43,7 @@ const AddTodo = ({ addItem }) => {
     value={todoItem.title} 
     placeholder="Add Todo here"
     
-    onChange={(e) => {(e.target.value.trim()?setTodoItem({ title: e.target.value}):alert('올바른 값 입력 플리즈'))
-  // console.log('보고보보보', e.target.value.trim());
-  }}
+    onChange={(e) => setTodoItem({ title: e.target.value})}
     onKeyPress={onEnterKeyPress}
     // autoFocus
     ref={inputFocus}
