@@ -1,4 +1,5 @@
 import { useState } from "react";
+import '../styles/AddTodo.scss'
 
 const AddTodo = ({ addItem }) => {
   // const { addItem } = props;  // props로 받는다면 이거 해줘야 함수 사용 가능
@@ -25,13 +26,17 @@ const AddTodo = ({ addItem }) => {
   };
 
   return (<div className="AddTodo">
+
     <input type="text" 
+    className="inputTodo"
     value={todoItem.title} 
-    placeholder="Add your new todo"
+    placeholder="Add Todo here"
     onChange={(e) => setTodoItem({ title: e.target.value})}
     onKeyPress={onEnterKeyPress}></input>
 
-    <button onClick={onButtonClick} >Add</button>
+    <button onClick={onButtonClick} 
+    className="btn inputBtn">+</button>
+
   </div>
   )
 }

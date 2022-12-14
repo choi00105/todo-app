@@ -1,0 +1,90 @@
+@import './utils.scss';
+* {
+  margin: 0;
+  box-sizing: border-box;
+  // padding 까지가 박스 사이즈
+  // min-width: 320px;
+}
+.btn {
+  border-radius: 3px;
+  border: none;
+  padding: 0;
+  width: 25px;
+  height: 25px;
+  margin: 0 5px;
+  cursor: pointer;
+  
+}
+// 210px 까지 줄여도 안깨짐
+.header {
+  padding: 10px 0;
+  background-color: $color-blue;
+  color: $color-white;
+  text-align: center;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+}
+.section {
+
+  // position: fixed;
+  display: inline-block;
+
+.AddTodo {
+  margin: 0 5vw;
+  width: auto;
+  .inputTodo {
+    border: none;
+    border-bottom: solid 1px $color-blue;
+    margin: 10px 0;
+    // width: calc(70vw + 13px);
+    width: 72vw;
+    background-color: transparent;
+    outline: none;
+
+  }
+  .inputBtn {
+    
+    background-color: $color-blue;
+    color: $color-white;
+
+  }
+}
+.Todo {
+  margin: 10px 10px 0px 5vw;
+  // width: 90vw;
+
+  .showTodo {
+    outline: none;
+    border: none;
+    border-bottom: solid 1px $color-gray;
+    width: 70vw;
+    background-color: transparent;
+
+  }
+}
+}
+@media (min-width: $width-md) {
+  body{
+    background-color: $color-gray;
+  }
+  .header{
+    font-size: 30px;
+    
+  }
+	.section {
+    
+    margin: 30px 0 5vw 5vw;
+		background: gold;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-bottom: 10px;
+  }
+  .Todo{
+    display: flex;
+    width: 40vw;
+    .showTodo {
+      width: 20vw;
+    }
+  }
+
+}

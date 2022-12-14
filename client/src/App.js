@@ -2,6 +2,10 @@ import { useState, useRef } from 'react';
 import Todo from './components/Todo';
 import AddTodo from './components/AddTodo';
 
+// import './styles/SassDh.scss';
+import './styles/App.scss'
+
+
 const App = () => {
   const [todoItems, setTodoItems] = useState([
     {
@@ -49,17 +53,22 @@ const App = () => {
     <div className="App">
       {console.log('todoItems', todoItems)}
       {console.log(todoItems[0])}
-      {/* {console.log(delItem(todoItems))} */}
       
+      <header className="header">👍✌️My Todo App</header>
+
+      <div className='section'>
       <AddTodo
         addItem={addItem}
+        todoItems={todoItems}
       ></AddTodo>
+      <div className="left-todos">🚀 {todoItems.length==1?'1 Todo':todoItems.length>0?todoItems.length+' Todos':'Todo is blank'}</div>
+
 
       {todoItems.map((item) => {
         // console.log(item); // {id: 1, title: 'My Todo1', done: false}
         return <Todo key={item.id} item={item} delItem={delItem}></Todo>;
       })}
-      
+      </div>
     </div>
   );
 };

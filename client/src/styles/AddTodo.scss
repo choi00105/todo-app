@@ -1,0 +1,16 @@
+@import 'utils';
+
+.AddTodo {
+  width: 100%;
+  padding: 36px 24px;
+  display: flex;
+
+  input {
+    margin-right: 12px;
+    @include input($color-primary-400);
+  }
+
+  button {
+    @include button($color-primary-400, $color-secondary-100);
+  }
+}

@@ -1,0 +1,49 @@
+$color-blue: rgb(67, 99, 241);
+$color-white: rgb(255, 255, 255);
+$color-gray: lightgray;
+
+// 태블릿 (768px) 기준
+$width-md: 768px;
+
+//////////////////
+
+// 여러 파일에서 사용되는 sass 변수 및 mixin
+
+// COLOR
+$color-primary-400: rgb(82, 140, 255);
+$color-secondary-400: rgb(69, 69, 69);
+$color-secondary-300: rgb(100, 100, 100);
+$color-secondary-200: rgb(240, 240, 240);
+$color-secondary-100: rgb(255, 255, 255);
+
+// SIZE
+$width-md: 680px;
+
+// MIXIN
+@mixin button($bg-color, $color) {
+  padding: 0 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: $bg-color;
+  color: $color;
+  cursor: pointer;
+}
+
+@mixin input($border-color) {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid $border-color;
+  padding: 12px 8px;
+
+  &:focus {
+    // focus 될 때 발생하는 outline 효과 없애기
+    outline: none;
+  }
+}
+
+@mixin notice() {
+  color: $color-secondary-300;
+  font-size: 14px;
+  font-weight: 500;
+}
