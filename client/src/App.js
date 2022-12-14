@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import Todo from './components/Todo';
 import AddTodo from './components/AddTodo';
 
+
 // import './styles/SassDh.scss';
 import './styles/App.scss'
 
@@ -59,10 +60,8 @@ const App = () => {
       <div className='section'>
       <AddTodo
         addItem={addItem}
-        todoItems={todoItems}
       ></AddTodo>
       <div className="left-todos">🚀 {todoItems.length==1?'1 Todo':todoItems.length>0?todoItems.length+' Todos':'Todo is blank'}</div>
-
 
       {todoItems.map((item) => {
         // console.log(item); // {id: 1, title: 'My Todo1', done: false}

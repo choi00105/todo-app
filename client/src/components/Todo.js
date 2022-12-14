@@ -2,6 +2,9 @@
 import { useState } from "react";
 import '../styles/Todo.scss'
 
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 const Todo = ({ item , delItem }) => {
   const { id, title, done } = item;
   // console.log(item.id);
@@ -59,6 +62,7 @@ const Todo = ({ item , delItem }) => {
         defaultChecked={done}
         onChange={checkboxEventHandler}
       />
+
       {/* <label htmlFor={`todo${id}`}>{title}</label> */}
       <input type="text" 
       className="showTodo"
@@ -68,7 +72,9 @@ const Todo = ({ item , delItem }) => {
       onClick={toggleReadOnly}
       onKeyPress={onEnterPress}></input>
       <button onClick={onDeleteBtnClick}
-      className="btn">🗑️</button>
+      className="btn">
+      <FontAwesomeIcon icon={faTrashCan} />
+      </button>
     </div>
   );
 };
