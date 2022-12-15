@@ -57,6 +57,14 @@ const App = () => {
     setTodoItems(newtodoItems);
   };
 
+  // API를 이용해서 update하려면
+  // (1) server/routes/todo.js API를 이용해 서버 데이터를 업데이트 한 후
+  // (2) 변경된 내용을 화면에 다시 출력하는 작업
+  const updateItem = async (targetItem) => {
+    console.log(targetItem);
+    await axios.patch(`http://localhost:8081/todo/${targetItem.id}`,targetItem)
+  }
+
   return (
     <div className="App">
       {/* {console.log('todoItems', todoItems)} */}
@@ -72,7 +80,7 @@ const App = () => {
 
       {todoItems.map((item) => {
         // console.log(item); // {id: 1, title: 'My Todo1', done: false}
-        return <Todo key={item.id} item={item} delItem={delItem}></Todo>;
+        return <Todo key={item.id} item={item} delItem={delItem} updateItem={updateItem}></Todo>;
       })}
       </div>
     </div>

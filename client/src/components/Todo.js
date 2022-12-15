@@ -5,7 +5,7 @@ import '../styles/Todo.scss'
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Todo = ({ item , delItem }) => {
+const Todo = ({ item , delItem, updateItem }) => {
   const { id, title, done } = item;
   // console.log(item.id);
   const [todoItem, setTodoItem]= useState(item);
@@ -29,6 +29,10 @@ const Todo = ({ item , delItem }) => {
       title: e.target.value,
       ...rest
     });
+    updateItem({
+      title: e.target.value,
+      ...rest
+    });
   };
   const toggleReadOnly = () => {
     if(readOnly){
@@ -39,6 +43,7 @@ const Todo = ({ item , delItem }) => {
   const onEnterPress = (e) => {
     if(e.key=='Enter') {
       toggleReadOnly();
+
     };
   };
 
@@ -49,6 +54,12 @@ const Todo = ({ item , delItem }) => {
       ...rest,
 
     });
+    updateItem({
+      done: e.target.checked,
+      ...rest,
+
+    });
+
   };
   // console.log(delItem(item));
   return (
