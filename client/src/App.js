@@ -39,9 +39,9 @@ const App = () => {
     // newItem.id = todoId.current++; // 키를 위한 id 설정
     // newItem.done = false; // done 초기화
     // 기존 todoItems를 유지하고, 새로운 newItem을 추가
-    setTodoItems([...todoItems, newItem]); // setTodoItems(todoItems.concat(newItem))
+    // setTodoItems([...todoItems, newItem]); // setTodoItems(todoItems.concat(newItem))
 
-    // setTodoItems([...todoItems, add.data]); // setTodoItems(todoItems.concat(newItem))
+    setTodoItems([...todoItems, add.data]); // setTodoItems(todoItems.concat(newItem))
   };
 
   // 전체 Todo 리스트(todoItems)는 App 컴포넌트에서 관리하고 있으므로
@@ -52,7 +52,6 @@ const App = () => {
     let del = await axios.delete(`http://localhost:8081/todo/${targetItem.id}` );
     console.log('보여줘', del);
     
-
     let newtodoItems = todoItems.filter((item) => targetItem.id !== item.id );
     console.log('newtodo', newtodoItems);
     setTodoItems(newtodoItems);
